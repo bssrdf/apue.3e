@@ -14,7 +14,7 @@ MOREPROGS = ftw8
 
 all:	$(PROGS) $(MOREPROGS)
 
-$(PROGS):	$(LIBAPUE)
+$(PROGS):       %: %.c $(LIBAPUE)
 		$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS) $(LDLIBS)
 
 ftw8:	ftw8.c $(LIBAPUE)

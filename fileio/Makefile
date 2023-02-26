@@ -6,7 +6,7 @@ PROGS =	fileflags hole mycat seek
 
 all:	$(PROGS) setfl.o
 
-$(PROGS):	$(LIBAPUE)
+$(PROGS): %: %.c	$(LIBAPUE)
 		$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS) $(LDLIBS)
 
 clean:

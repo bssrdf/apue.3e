@@ -6,7 +6,7 @@ PROGS =	getcputc hello ls1 mycat shell1 shell2 testerror uidgid
 
 all:	$(PROGS)
 
-$(PROGS):	$(LIBAPUE)
+$(PROGS):   %: %.c	$(LIBAPUE)
 		$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS) $(LDLIBS)
 
 clean:

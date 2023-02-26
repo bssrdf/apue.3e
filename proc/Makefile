@@ -22,7 +22,7 @@ MOREPROGS = systest1 systest3
 
 all:	$(PROGS) $(MOREPROGS) system.o $(ACCT)
 
-$(PROGS):	$(LIBAPUE)
+$(PROGS):	%: %.c $(LIBAPUE)
 		$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS) $(LDLIBS)
 
 systest1:	system.o systest1.o

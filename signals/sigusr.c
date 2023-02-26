@@ -15,8 +15,8 @@ main(void)
     sig_usr_pr = sig_usr;
 	if (signal(SIGTERM, sig_usr_pr) == SIG_ERR)
 		err_sys("can't catch SIGTERM");
-	/*if (signal(SIGINT, sig_usr_pr) == SIG_ERR)
-		err_sys("can't catch SIGTERM");*/
+	if (signal(SIGINT, sig_usr_pr) == SIG_ERR)
+		err_sys("can't catch SIGTERM");
 	for ( ; ; )
 		pause();
 }

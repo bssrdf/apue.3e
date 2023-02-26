@@ -16,7 +16,9 @@ MOREPROGS = systest2 tsleep2
 
 all:	$(PROGS) $(MOREPROGS) abort.o sleep1.o sleep2.o system.o $(CLD)
 
-$(PROGS):	$(LIBAPUE)
+# %.c is a pattern that matches any file name ending in .c, and 
+# %: is a pattern that matches any file name without an extension.
+$(PROGS): %: %.c $(LIBAPUE)
 		$(CC) $(CFLAGS) $@.c -o $@ $(LDFLAGS) $(LDLIBS)
 
 tsleep2:	tsleep2.o sleep2.o
